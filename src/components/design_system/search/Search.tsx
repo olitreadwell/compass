@@ -1,4 +1,4 @@
-import { InputBase, InputBaseProps } from "@mui/material";
+import { IconButton, InputBase, InputBaseProps } from "@mui/material";
 import { Clear as ClearIcon, Search as SearchIcon } from "@mui/icons-material";
 
 import classNames from "classnames";
@@ -26,7 +26,15 @@ const Search = ({ className, ...inputBaseProps }: InputBaseProps) => {
       }
     };
     inputBaseProps.endAdornment = inputBaseProps.endAdornment || (
-      <ClearIcon className={classes.search__icon} onClick={onClick} />
+      <IconButton
+        aria-label="Clear search"
+        className={classes.search__icon}
+        onClick={onClick}
+        size="small"
+        sx={{ padding: 0 }}
+      >
+        <ClearIcon fontSize="inherit" />
+      </IconButton>
     );
   }
   return (
